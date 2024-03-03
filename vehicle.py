@@ -1,15 +1,15 @@
 import cv2
 import numpy as np
 
-
 #web camera
 cap = cv2.VideoCapture('video.mp4')
 count_line_position =280
+
 #variables-vehicle detection
-min_width_rect=70 # width rectangle
-min_height_rect=70 #min width rectangle
+min_width_rect=80 # width rectangle
+min_height_rect=80 #min width rectangle
 detect= []
-offset = 5 #Allowable error between pixel
+offset = 6#Allowable error between pixel
 counter=0
 prev_frame_count=0
 
@@ -52,6 +52,8 @@ while True:
             continue
         cv2.rectangle(frame1,(x,y),(x+w,y+h),(0,255,0),2)
         cv2.rectangle(frame1, (x, y), (x + w, y + h), (0, 255, 0), 2)
+        cv2.putText(frame1,"vehicle:"+str(counter),(x,y-20),cv2.FONT_HERSHEY_TRIPLEX,1,(255,244,0),2)
+
 
 
         center =center_handle(x,y,w,h)
@@ -71,6 +73,8 @@ while True:
     if counter >prev_frame_count:
         prev_frame_count = counter
 
+    if counter>28:
+        cv2.putText(frame1,"Warning: High traffic volume!", (50, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 #Display the frame
 
    # cv2.imshow('Detecter',dilatada)
