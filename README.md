@@ -8,4 +8,22 @@ This Python program detects vehicles in a video stream and monitors traffic volu
 - Python 3.8.5
 - OpenCV library (cv2)
 - NumPy library (numpy)
-###
+### Installation:
+1. Install Python 3.8.5 from [https://python.org] (https://www.python.org/downloads/)
+2. Install required libraries:
+    pip install opencv-python numpy
+### Usage:
+1. Clone or download the repository.
+2. Place your video file named video.mp4 in the same directory as the program.
+3. Run the program: python vehicle_detection.py
+4. The program will display the original video stream with vehicle detection and traffic volume monitoring.
+
+### Configuration:
+
+- You can adjust parameters such as minimum width and height of detected rectangles, count line position, and offset for vehicle detection in the program code.
+
+## Additional Notes:
+
+- Make sure to adjust the parameters according to your specific requirements and video characteristics.
+- This program assumes a constant camera angle and relatively stable lighting conditions for accurate detection.
+
